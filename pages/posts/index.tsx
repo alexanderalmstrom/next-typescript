@@ -1,33 +1,30 @@
 import { GetStaticProps } from 'next'
-import { Post } from '../../interfaces'
+import Link  from 'next/link';
+import { IPost } from '../../interfaces'
+import { contentfulClient } from '../services/contentful';
 import Layout from '../../components/Layout'
 
 type Props = {
-  posts: Post[]
+  posts: IPost[]
 }
 
 const PostsPage = ({ posts }: Props) => (
   <Layout title="Posts - Next TypeScript">
     <h1>Posts</h1>
-    {posts.map((post) => (
-      <div key={post.id}>{post.name}</div>
+    {posts && posts.length && posts.map(({ sys, fields: post }) => (
+      <article key={sys.id}>
+        <h2>
+          <Link href="/post/[slug]" as={`/post/${post.slug}`}>
+            {post.title}
+          </Link>
+        </h2>
+      </article>
     ))}
   </Layout>
 )
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts: Post[] = [
-    {
-      id: 1,
-      name: "Hello world!",
-      slug: "hello-world"
-    },
-    {
-      id: 2,
-      name: "Hello universe!",
-      slug: "hello-universe"
-    }
-  ]
+  const { items: posts } = await contentfulClient.getEntries({ content_type: 'post' })
 
   return {
     props: {
