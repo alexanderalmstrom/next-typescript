@@ -5,6 +5,8 @@ import Posts from '../../components/Posts'
 
 import { IPost } from '../../interfaces'
 
+import styles from '../../styles/main.module.scss'
+
 type Props = {
   posts: IPost[]
 }
@@ -12,7 +14,6 @@ type Props = {
 const PostsPage = ({ posts }: Props) => {
   return (
     <Layout title="Posts">
-      <h1>Posts</h1>
       <Posts posts={posts} />
     </Layout>
   )

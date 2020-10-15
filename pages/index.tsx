@@ -1,12 +1,10 @@
-import Link from 'next/link';
 import Layout from '../components/Layout'
+
+import styles from '../styles/main.module.scss'
 
 const IndexPage = () => (
   <Layout>
-    <h1>Hello Next.js 👋</h1>
-    <Link href="/about">
-      <a>About</a>
-    </Link>
+    <h1 className={styles.title}>Hello Next.js 👋</h1>
   </Layout>
 )
 
