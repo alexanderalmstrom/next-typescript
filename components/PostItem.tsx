@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from 'next/link'
 
 import { IPost } from '../interfaces'
@@ -8,7 +7,7 @@ type Props = {
 }
 
 const PostItem = ({ data }: Props) => (
-  <article key={data.sys.id}>
+  <article>
     <h2>
       <Link href="/posts/[slug]" as={`/posts/${data.fields.slug}`}>
         {data.fields.title}

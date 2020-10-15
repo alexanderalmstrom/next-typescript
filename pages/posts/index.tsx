@@ -9,12 +9,14 @@ type Props = {
   posts: IPost[]
 }
 
-const PostsIndex = ({ posts }: Props) => (
-  <Layout title="Posts">
-    <h1>Posts</h1>
-    <Posts posts={posts} />
-  </Layout>
-)
+const PostsPage = ({ posts }: Props) => {
+  return (
+    <Layout title="Posts">
+      <h1>Posts</h1>
+      <Posts posts={posts} />
+    </Layout>
+  )
+}
 
 export const getStaticProps: GetStaticProps = async () => {
   const { items: posts } = await contentfulClient.getEntries({ content_type: 'post' })
@@ -26,4 +28,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default PostsIndex
+export default PostsPage
