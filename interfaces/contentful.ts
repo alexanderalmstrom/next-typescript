@@ -104,7 +104,7 @@ export interface IPageFields {
   content?: string | undefined;
 
   /** Blocks */
-  blocks?: (IContentBlock | IHeroBlock | IProjectBlock)[] | undefined;
+  blocks?: (IContentBlock | IHeroBlock)[] | undefined;
 }
 
 export interface IPage extends Entry<IPageFields> {
