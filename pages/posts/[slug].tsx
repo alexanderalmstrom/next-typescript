@@ -1,7 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { contentfulClient } from '../../services/contentful'
-import Layout from '../../components/Layout'
 import Error from '../../components/Error';
+import PostPage from '../../components/PostPage'
 
 import { IPost } from '../../interfaces'
 
@@ -11,18 +11,9 @@ type Props = {
 }
 
 const PostBySlug = ({ post, errors }: Props) => {
-  if (errors) <Error errors={errors} />
-
-  return (
-    <Layout title={post?.fields.title} description={post?.fields.description}>
-      {post && (
-				<>
-					<h1>{post.fields.title}</h1>
-					{post.fields.description && <p>{post.fields.description}</p>}
-				</>
-			)}
-    </Layout>
-  )
+  if (errors) return <Error errors={errors} />
+  
+  return post && <PostPage data={post} />
 }
 
 export default PostBySlug
