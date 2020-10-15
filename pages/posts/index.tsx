@@ -1,8 +1,9 @@
 import { GetStaticProps } from 'next'
-import Link  from 'next/link';
-import { IPost } from '../../interfaces'
-import { contentfulClient } from '../services/contentful';
 import Layout from '../../components/Layout'
+import Posts from '../../components/Posts'
+
+import { contentfulClient } from '../services/contentful'
+import { IPost } from '../../interfaces'
 
 type Props = {
   posts: IPost[]
@@ -11,15 +12,7 @@ type Props = {
 const PostsPage = ({ posts }: Props) => (
   <Layout title="Posts - Next TypeScript">
     <h1>Posts</h1>
-    {posts && posts.length && posts.map(({ sys, fields: post }) => (
-      <article key={sys.id}>
-        <h2>
-          <Link href="/post/[slug]" as={`/post/${post.slug}`}>
-            {post.title}
-          </Link>
-        </h2>
-      </article>
-    ))}
+    <Posts posts={posts} />
   </Layout>
 )
 

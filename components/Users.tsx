@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import UserItem from './UserItem'
 import { User } from '../interfaces'
 
