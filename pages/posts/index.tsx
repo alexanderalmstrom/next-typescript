@@ -1,16 +1,16 @@
 import { GetStaticProps } from 'next'
+import { contentfulClient } from '../../services/contentful'
 import Layout from '../../components/Layout'
 import Posts from '../../components/Posts'
 
-import { contentfulClient } from '../services/contentful'
 import { IPost } from '../../interfaces'
 
 type Props = {
   posts: IPost[]
 }
 
-const PostsPage = ({ posts }: Props) => (
-  <Layout title="Posts - Next TypeScript">
+const PostsIndex = ({ posts }: Props) => (
+  <Layout title="Posts">
     <h1>Posts</h1>
     <Posts posts={posts} />
   </Layout>
@@ -26,4 +26,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default PostsPage
+export default PostsIndex
