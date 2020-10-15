@@ -6,7 +6,7 @@ type Props = {
 	data: IPost
 }
 
-const PostPage = ({ data }: Props) => (
+const PostArticle = ({ data }: Props) => (
 	<Layout title={data?.fields.title} description={data?.fields.description}>
 		<article>
 			<h1>{data.fields.title}</h1>
@@ -15,4 +15,4 @@ const PostPage = ({ data }: Props) => (
 	</Layout>
 )
 
-export default PostPage
+export default PostArticle

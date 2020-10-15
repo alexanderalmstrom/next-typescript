@@ -6,7 +6,7 @@ type Props = {
   data: IPost
 }
 
-const PostItem = ({ data }: Props) => (
+const PostPreview = ({ data }: Props) => (
   <article>
     <h2>
       <Link href="/posts/[slug]" as={`/posts/${data.fields.slug}`}>
@@ -16,4 +16,4 @@ const PostItem = ({ data }: Props) => (
   </article>
 )
 
-export default PostItem
+export default PostPreview

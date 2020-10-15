@@ -1,4 +1,4 @@
-import PostItem from './PostItem'
+import PostPreview from './PostPreview'
 
 import { IPost } from '../interfaces'
 
@@ -9,7 +9,7 @@ type Props = {
 const Posts = ({ posts }: Props) => (
   <>
 		{posts.map((post) => (
-			<PostItem key={post.sys.id} data={post} />
+			<PostPreview key={post.sys.id} data={post} />
 		))}
   </>
 )
