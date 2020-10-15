@@ -1,19 +1,19 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 
 import { User } from '../../interfaces'
-import { sampleUserData } from '../../utils/sample-data'
+import { userData } from '../../utils/data'
 import Layout from '../../components/Layout'
-import ListDetail from '../../components/ListDetail'
+import UserDetail from '../../components/UserDetail'
 
 type Props = {
-  item?: User
+  user?: User
   errors?: string
 }
 
-const StaticPropsDetail = ({ item, errors }: Props) => {
+const UserSinglePage = ({ user, errors }: Props) => {
   if (errors) {
     return (
-      <Layout title="Error | Next.js + TypeScript Example">
+      <Layout title="Error - Next TypeScript">
         <p>
           <span style={{ color: 'red' }}>Error:</span> {errors}
         </p>
@@ -22,21 +22,17 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
   }
 
   return (
-    <Layout
-      title={`${
-        item ? item.name : 'User Detail'
-      } | Next.js + TypeScript Example`}
-    >
-      {item && <ListDetail item={item} />}
+    <Layout title={`${ user ? user.name : 'Users' } - Next TypeScript`}>
+      {user && <UserDetail user={user} />}
     </Layout>
   )
 }
 
-export default StaticPropsDetail
+export default UserSinglePage
 
 export const getStaticPaths: GetStaticPaths = async () => {
   // Get the paths we want to pre-render based on users
-  const paths = sampleUserData.map((user) => ({
+  const paths = userData.map((user) => ({
     params: { id: user.id.toString() },
   }))
 
@@ -51,11 +47,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     const id = params?.id
-    const item = sampleUserData.find((data) => data.id === Number(id))
-    // By returning { props: item }, the StaticPropsDetail component
-    // will receive `item` as a prop at build time
-    return { props: { item } }
+    const user = userData.find((data) => data.id === Number(id))
+    // By returning { props: user }, the StaticPropsDetail component
+    // will receive `user` as a prop at build time
+    return {
+      props: {
+        user
+      }
+    }
   } catch (err) {
-    return { props: { errors: err.message } }
+    return {
+      props: {
+        errors: err.message
+      }
+    }
   }
 }
