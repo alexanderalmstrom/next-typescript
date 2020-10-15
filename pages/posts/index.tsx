@@ -5,8 +5,6 @@ import Posts from '../../components/Posts'
 
 import { IPost } from '../../interfaces'
 
-import styles from '../../styles/main.module.scss'
-
 type Props = {
   posts: IPost[]
 }
