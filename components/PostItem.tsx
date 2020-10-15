@@ -8,13 +8,13 @@ type Props = {
 }
 
 const PostItem = ({ data }: Props) => (
-	<article key={data.sys.id}>
-		<h2>
-			<Link href="/posts/[slug]" as={`/posts/${data.fields.slug}`}>
-				{data.fields.title}
-			</Link>
-		</h2>
-	</article>
+  <article key={data.sys.id}>
+    <h2>
+      <Link href="/posts/[slug]" as={`/posts/${data.fields.slug}`}>
+        {data.fields.title}
+      </Link>
+    </h2>
+  </article>
 )
 
 export default PostItem
