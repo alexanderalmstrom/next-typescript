@@ -9,7 +9,7 @@ type Props = {
 const PostsPage = ({ posts }: Props) => (
   <Layout title="Posts - Next TypeScript">
     <h1>Posts</h1>
-		{posts.map((post) => (
+    {posts.map((post) => (
       <div key={post.id}>{post.name}</div>
     ))}
   </Layout>
