@@ -5,17 +5,24 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "contentful": "contentful-typescript-codegen --output ./interfaces/contentful.ts"
   },
   "dependencies": {
+    "contentful": "^7.14.7",
     "next": "latest",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "@contentful/rich-text-types": "^14.1.1",
     "@types/node": "^12.12.21",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
+    "contentful-management": "^6.1.2",
+    "contentful-typescript-codegen": "^3.2.1",
+    "dotenv": "^8.2.0",
+    "prettier": "^2.1.2",
     "typescript": "4.0"
   },
   "license": "MIT"
