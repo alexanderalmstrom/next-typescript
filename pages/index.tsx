@@ -3,7 +3,7 @@ import styles from '../styles/main.module.scss'
 
 const IndexPage = () => (
   <Layout>
-    <h1 className={styles.title}>Hello Next.js 👋</h1>
+    <h1 className={styles.title}>Hello production 👋</h1>
   </Layout>
 )
 
