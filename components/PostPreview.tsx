@@ -1,18 +1,13 @@
 import Link from 'next/link'
-
-import { IPost } from '../interfaces'
-
 import styles from '../styles/main.module.scss'
 
-type Props = {
-  data: IPost
-}
+import { IPostFields } from '../interfaces'
 
-const PostPreview = ({ data }: Props) => (
+const PostPreview = ({ title, slug }: IPostFields) => (
   <article>
     <h2 className={styles.title}>
-      <Link href="/posts/[slug]" as={`/posts/${data.fields.slug}`}>
-        {data.fields.title}
+      <Link href="/posts/[slug]" as={`/posts/${slug}`}>
+        {title}
       </Link>
     </h2>
   </article>

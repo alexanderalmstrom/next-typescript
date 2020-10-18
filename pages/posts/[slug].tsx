@@ -1,43 +1,43 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
-import { contentfulClient } from '../../services/contentful'
+import { requestPosts } from '../../services/contentful'
 import Error from '../../components/Error';
 import PostArticle from '../../components/PostArticle'
 
-import { IPost } from '../../interfaces'
+import { IPostFields } from '../../interfaces'
 
 type Props = {
-	post?: IPost
-  errors?: string
+	post?: IPostFields;
+  errors?: string;
 }
 
 const PostBySlug = ({ post, errors }: Props) => {
   if (errors) return <Error errors={errors} />
   
-  return post && <PostArticle data={post} />
+  return post && <PostArticle {...post} />
 }
 
 export default PostBySlug
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const { items: posts } = await contentfulClient.getEntries({ content_type: 'post' })
+	const posts = await requestPosts();
 
   const paths = posts.map((post: any) => ({
-    params: { slug: post.fields.slug },
+    params: { slug: post.slug }
   }))
 
-  return { paths, fallback: false }
+  return { paths, fallback: false } 
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-	const { items: posts } = await contentfulClient.getEntries({ content_type: 'post' })
+  const posts = await requestPosts();
 
   try {		
 		const slug = params?.slug
+    const post = posts.filter((data: any) => data.slug === slug)
 
-    const post = posts.find((data: any) => data.fields.slug === slug)
     return {
       props: {
-        post
+        post: post[0]
       }
     }
   } catch (err) {
