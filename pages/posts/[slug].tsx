@@ -18,7 +18,7 @@ const PostBySlug = ({ post, errors }: Props) => {
 export default PostBySlug
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const posts = await requestPosts();
+	const posts = await requestPosts()
 
   const paths = posts.map((post: any) => ({
     params: { slug: post.slug }
@@ -28,7 +28,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const posts = await requestPosts();
+  const posts = await requestPosts()
 
   try {		
 		const slug = params?.slug
