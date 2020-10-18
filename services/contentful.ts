@@ -1,14 +1,11 @@
 import { createClient, Entry, EntryCollection } from 'contentful'
 import { IPost } from '../interfaces';
 
-const host = process.env.NODE_ENV === 'development' ? 'preview.contentful.com' : process.env.CONTENTFUL_HOST
-const environment = process.env.NODE_ENV === 'development' ? 'develop' : process.env.CONTENTFUL_ENV
-
 export const contentfulClient = createClient({
   space: process.env.CONTENTFUL_SPACE_ID as string,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string,
-  host,
-  environment
+  host: process.env.CONTENTFUL_HOST as string,
+  environment: process.env.CONTENTFUL_ENV as string
 })
 
 function getContents<T>(contentType: string, queries?: unknown): Promise<T[]> {
