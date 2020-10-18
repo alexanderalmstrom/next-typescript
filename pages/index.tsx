@@ -4,7 +4,7 @@ import styles from '../styles/home.module.scss'
 
 const IndexPage = () => (
   <Layout>
-    <h1 className={styles.title}>Hello production 👋</h1>
+    <h1 className={styles.title}>Hello 👋</h1>
   </Layout>
 )
 
