@@ -1,4 +1,4 @@
-import { Entry } from "contentful";
+import { Entry } from 'contentful'
 
 export interface IPostFields {
   title: string;

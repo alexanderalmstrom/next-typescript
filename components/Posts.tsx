@@ -1,5 +1,4 @@
 import PostPreview from './PostPreview'
-
 import { IPost } from '../interfaces'
 
 type Props = {
