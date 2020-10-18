@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import styles from '../styles/main.module.scss'
-
 import { IPostFields } from '../interfaces'
+
+import styles from '../styles/post-preview.module.scss'
 
 const PostPreview = ({ title, slug }: IPostFields) => (
   <article>

@@ -1,14 +1,14 @@
 import Layout from './Layout'
-import styles from '../styles/main.module.scss'
-
 import { IPostFields } from '../interfaces'
+
+import styles from '../styles/post-article.module.scss'
 
 const PostArticle = ({ title, description }: IPostFields) => {
 	return (
 		<Layout title={title} description={description}>
-		<article>
+		<article className={styles.container}>
 			<h1 className={styles.title}>{title}</h1>
-			{description && <p>{description}</p>}
+			{description && <p className={styles.description}>{description}</p>}
 		</article>
 	</Layout>
 	)

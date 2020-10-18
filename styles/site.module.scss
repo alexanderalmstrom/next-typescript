@@ -1,12 +1,11 @@
 @import './config.scss';
 
-.main {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  flex-grow: 1;
+.site {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  background-color: $black;
+  color: $white;
 }

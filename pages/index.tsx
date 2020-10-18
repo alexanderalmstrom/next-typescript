@@ -1,5 +1,6 @@
 import Layout from '../components/Layout'
-import styles from '../styles/main.module.scss'
+
+import styles from '../styles/home.module.scss'
 
 const IndexPage = () => (
   <Layout>
