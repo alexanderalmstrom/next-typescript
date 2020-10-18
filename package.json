@@ -5,7 +5,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "pull-env": "vercel env pull .env.local"
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
