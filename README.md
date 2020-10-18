@@ -6,6 +6,13 @@
 git clone git@github.com:alexanderalmstrom/next-typescript.git
 ```
 
+## Create `.env.local` and add environment variables. Replace `XXX` with your credentials
+
+```bash
+CONTENTFUL_SPACE_ID=XXX
+CONTENTFUL_ACCESS_TOKEN=XXX
+```
+
 ## Install
 
 ```bash
